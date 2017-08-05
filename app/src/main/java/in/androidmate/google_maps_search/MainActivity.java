@@ -1,5 +1,6 @@
 package in.androidmate.google_maps_search;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startActivity(new Intent(MainActivity.this,PlacesActivity.class));
 
         geo_autocomplete_clear = (ImageView) findViewById(R.id.geo_autocomplete_clear);
 
