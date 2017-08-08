@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(MainActivity.this,PlacesActivity.class));
+        startActivity(new Intent(MainActivity.this,MarkerActivity.class));
 
         geo_autocomplete_clear = (ImageView) findViewById(R.id.geo_autocomplete_clear);
 
