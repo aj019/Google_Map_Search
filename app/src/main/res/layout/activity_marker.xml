@@ -11,7 +11,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-
+                android:id="@+id/rlMap"
                 >
 
                 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -34,82 +34,42 @@
 
             </RelativeLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="false"
-            android:visibility="visible"
-            >
-
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="100dp"
                 android:orientation="vertical"
-                android:clickable="true"
-                android:layout_marginTop="300dp"
-                android:background="@color/white"
+                android:layout_below="@+id/rlMap"
                 >
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@color/colorPrimary"
-                        />
-
-
-                    <EditText
-                        android:id="@+id/etAdd"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address"
-                        />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address"
-                        />
-
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address"
-                        />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address"
-                        />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address"
-                        />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Address"
-                        />
-
-                <EditText
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Address"
+                    android:text="Address"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_20"
                     />
 
                 <EditText
+                    android:id="@+id/etAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Address"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginRight="@dimen/margin_10"
                     />
+
 
             </LinearLayout>
 
 
-        </ScrollView>
+    <Button
+        android:id="@+id/btNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        />
+
+
 </RelativeLayout>

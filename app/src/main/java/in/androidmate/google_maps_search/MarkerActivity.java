@@ -14,6 +14,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,7 +49,7 @@ public class MarkerActivity extends AppCompatActivity
         implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        LocationListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraIdleListener {
+        LocationListener, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraIdleListener, View.OnClickListener {
 
     GoogleMap mGoogleMap;
     SupportMapFragment mapFrag;
@@ -56,6 +58,7 @@ public class MarkerActivity extends AppCompatActivity
     Location mLastLocation;
     Marker mCurrLocationMarker;
     EditText etAdd;
+    Button btNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -63,8 +66,9 @@ public class MarkerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marker);
 
-
-        //etAdd = (EditText) findViewById(R.id.etAdd);
+        btNext = (Button) findViewById(R.id.btNext);
+        btNext.setOnClickListener(this);
+        etAdd = (EditText) findViewById(R.id.etAdd);
         mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFrag.getMapAsync(this);
     }
@@ -239,10 +243,21 @@ public class MarkerActivity extends AppCompatActivity
         try {
             List<Address> address = geocoder.getFromLocation(latlng.latitude,latlng.longitude,1);
             if(address != null && address.size() !=0){
-                //etAdd.setText(address.get(0).getAddressLine(0)+" "+address.get(0).getAddressLine(1)+" "+address.get(0).getAddressLine(2));
+                etAdd.setText(address.get(0).getAddressLine(0)+" "+address.get(0).getAddressLine(1)+" "+address.get(0).getAddressLine(2));
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btNext:
+
+                startActivity(new Intent(MarkerActivity.this,AddressDetailsActivity.class));
+
+                break;
         }
     }
 }
